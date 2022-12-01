@@ -6,7 +6,7 @@
 
 ```json
 {
-  "email": "admin@mail.com",
+  "email": "admin@gmail.com",
   "password": "admin"
 }
 ```
