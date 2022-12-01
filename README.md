@@ -1,6 +1,6 @@
 # API Spec
 
-## link API : https://greenpeace-backend-dev-production.up.railway.app/
+## link API : https://greenpeace-backend-production.up.railway.app/
 
 <br>untuk admin kita menyediakan akun admin untuk akses membuat, mengedit, menghapus user dan artikel diharapkan login sebagai admin terlebih dahulu setelah memasukan kode tokennya berikut username dan password adminnya, setelah login masukan token authorization lalu pilih Bearer Token
 
