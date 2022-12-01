@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const authRoute = require("./routes/auth.route");
 // const userRoute = require("./routes/user.route");
-// const artikelRoute = require("./routes/artikel.route");
+const artikelRoute = require("./routes/artikel.route");
 
 require("dotenv").config();
 
@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(cors());
 // app.use(userRoute);
 app.use(authRoute);
-// app.use(artikelRoute);
+app.use(artikelRoute);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
