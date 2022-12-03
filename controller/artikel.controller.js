@@ -1,4 +1,3 @@
-const { response } = require("express");
 const models = require("../models/index");
 
 function createArtikel(req, res) {

@@ -11,18 +11,18 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors());
 app.use(userRoute);
 app.use(authRoute);
 app.use(artikelRoute);
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
 
 app.listen(port, () =>
   console.log(`Example app listening at http://localhost:${port}`)
