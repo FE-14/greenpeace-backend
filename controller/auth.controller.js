@@ -3,7 +3,10 @@ const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 function register(req, res) {
-  const { name, email, password, confPassword } = req.body;
+  let { name, email, password, confPassword, role } = req.body;
+  if (role == null) {
+    role = "user";
+  }
   if (password !== confPassword)
     return res.status(400).json({ message: "Password Tidak cocok" });
 
@@ -20,6 +23,7 @@ function register(req, res) {
               name: name,
               email: email,
               password: hash,
+              role: role,
             };
 
             models.Users.create(user)
@@ -62,6 +66,7 @@ function login(req, res) {
               const userId = user.id;
               const name = user.name;
               const email = user.email;
+              const role = user.role;
 
               const accessToken = jwt.sign(
                 { userId, name, email },
@@ -70,6 +75,7 @@ function login(req, res) {
                 function (err, accessToken) {
                   res.status(200).json({
                     message: "Authentication successful!",
+                    role,
                     accessToken,
                   });
                 }
@@ -90,7 +96,12 @@ function login(req, res) {
                 }
               );
               res.cookie("refreshToken", refreshToken, {
-                // httpOnly: true,
+                httpOnly: true,
+                maxAge: 24 * 60 * 60 * 1000,
+                // secure: true,
+              });
+              res.cookie("roleUser", role, {
+                httpOnly: true,
                 maxAge: 24 * 60 * 60 * 1000,
                 // secure: true,
               });
@@ -134,6 +145,7 @@ function logout(req, res) {
         }
       );
       res.clearCookie("refreshToken");
+      res.clearCookie("roleUser");
       return res.status(200).json({ message: "Logout Successful!" });
     }
   });

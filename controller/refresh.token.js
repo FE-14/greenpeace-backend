@@ -24,7 +24,7 @@ function refreshToken(req, res) {
             { userId, name, email },
             process.env.ACCESS_TOKEN_SECRET,
             {
-              expiresIn: "600s",
+              expiresIn: "30s",
             }
           );
           res.json({ accesToken });
