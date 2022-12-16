@@ -1,11 +1,11 @@
 {
   "development": {
-    "username": "root",
-    "password": "4dWB3X80lA6KqF5x8vO6",
-    "database": "railway",
-    "host": "containers-us-west-104.railway.app",
+    "username": "sql6584917",
+    "password": "El9qfJTCgn",
+    "database": "sql6584917",
+    "host": "sql6.freesqldatabase.com",
     "dialect": "mysql",
-    "port": 6418
+    "port": 3306
   },
   "test": {
     "username": "root",
@@ -15,11 +15,11 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "4dWB3X80lA6KqF5x8vO6",
-    "database": "railway",
-    "host": "containers-us-west-104.railway.app",
+    "username": "sql6584917",
+    "password": "El9qfJTCgn",
+    "database": "sql6584917",
+    "host": "sql6.freesqldatabase.com",
     "dialect": "mysql",
-    "port": 6418
+    "port": 3306
   }
 }
